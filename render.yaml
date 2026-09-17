@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: super-converter-pdf-word
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: MAX_PDF_MB
+        value: "25"
+      - key: MAX_PDF_PAGES
+        value: "80"
+      - key: OCR_TIMEOUT_SECONDS
+        value: "600"
+      - key: CONVERT_TIMEOUT_SECONDS
+        value: "900"
